@@ -13,6 +13,7 @@ snake_segments = []
 
 head = Turtle("square")
 head.color("white")
+snake_segments.append(head)
 head.penup()
 
 for position in starting_positions:
@@ -25,13 +26,15 @@ for position in starting_positions:
 # show graphics now
 screen.update()
 
-# TODO Move Snake
+# TODO Turn Snake
 while True:
     # move snake
-    head.forward(20)
-    for segment in snake_segments:
-        segment.forward(20)
+    for seg_num in range(len(snake_segments) - 1, 0, -1):
+        new_x = snake_segments[seg_num - 1].xcor()
+        new_y = snake_segments[seg_num - 1].ycor()
+        snake_segments[seg_num].goto(new_x, new_y)
+    snake_segments[0].forward(20)
     # show changes
     screen.update()
-    time.sleep(0.2)
+    time.sleep(0.1)
 screen.exitonclick()
