@@ -14,7 +14,7 @@ class Snake:
         self.create_snake()
         self.head = self.snake_segments[0]
 
-    # create snake body
+    '''CREATE SNAKE BODY'''
     def create_snake(self):
 
         for position in STARTING_POSITIONS:
@@ -24,16 +24,19 @@ class Snake:
             segment.goto(position)
             self.snake_segments.append(segment)
 
-    # move snake
+    '''MOVE SNAKE'''
     def move(self):
-
+        # move last segment first
         for seg_num in range(len(self.snake_segments) - 1, 0, -1):
+            # get coordinates(x,y) of segment before the current segment
             new_x = self.snake_segments[seg_num - 1].xcor()
             new_y = self.snake_segments[seg_num - 1].ycor()
+            # move current segment to new coordinates (x,y)
             self.snake_segments[seg_num].goto(new_x, new_y)
+        # finally, move the head
         self.head.forward(MOVING_DISTANCE)
 
-    # control the snake
+    '''CONTROL THE SNAKE'''
     def up(self):
         if self.head.heading() != DOWN:
             self.head.setheading(UP)
