@@ -24,3 +24,9 @@ class Scoreboard(Turtle):
         self.score += 1
         self.clear()
         self.update_scoreboard()
+
+    def game_over(self):
+        # write "game over in the center of screen when game over"
+        self.goto(0, 0)
+        self.color("red")
+        self.write("GAME OVER", align=ALIGNMENT, font=FONT)
