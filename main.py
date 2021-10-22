@@ -36,9 +36,11 @@ while not game_over:
     if snake.head.distance(food) < 15:
         # set new food coordinates
         food.refresh()
+        # grow the snake
+        snake.grow()
         scoreboard.increase_score()
 
-    # TODO detect collision with boundaries
+    # detect collision with boundaries
     if snake.head.xcor() > 280 or snake.head.xcor() == -300 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
         # show "game over" then stop game
         scoreboard.game_over()
