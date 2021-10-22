@@ -1,5 +1,5 @@
 # Snake game
-import random
+from scoreboard import Scoreboard
 from snake import Snake
 from food import Food
 from turtle import Screen
@@ -16,6 +16,7 @@ screen.tracer(0)    # show no graphics on screen
 
 snake = Snake()
 food = Food()   # initialise food
+scoreboard = Scoreboard()
 
 # controlling the snake movements
 screen.listen()
@@ -35,5 +36,6 @@ while not game_over:
     if snake.head.distance(food) < 15:
         # set new food coordinates
         food.refresh()
+        scoreboard.increase_score()
 
 screen.exitonclick()
