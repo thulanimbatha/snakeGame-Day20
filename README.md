@@ -8,3 +8,5 @@ written in uppercase
 
 ## class inheritance
 inheriting behaviour from an existing class
+
+## Slicing lists & tuples in python
